@@ -1,0 +1,4 @@
+nocturne-static-v1.0.0.zip  sha256:74e2121af18cd5328843f20336e5a325921609745caf6f9fec587ad0d6452c60
+
+# verify (PowerShell):  (Get-FileHash .\nocturne-static-v1.0.0.zip -Algorithm SHA256).Hash
+# verify (macOS/Linux): shasum -a 256 nocturne-static-v1.0.0.zip

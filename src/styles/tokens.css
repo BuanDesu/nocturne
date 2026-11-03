@@ -1,0 +1,115 @@
+/* ==========================================================================
+   NOCTURNE — Design tokens
+   A dark, editorial system: void black, warm bone, one acid accent.
+   ========================================================================== */
+
+:root {
+  /* ---- Palette ---------------------------------------------------------- */
+  --void: #06060a;
+  --ink: #0b0b11;
+  --ink-2: #101018;
+  --bone: #efe9dc;
+  --bone-2: #e4ddcd;
+  --acid: #daff3e;
+  --acid-deep: #9dbb12;
+  --ember: #ff5a2b;
+  --lilac: #a291ff;
+
+  /* ---- Semantic (overridden by .theme-bone) ----------------------------- */
+  --bg: var(--void);
+  --bg-2: var(--ink);
+  --surface: #0d0d13;
+  --surface-2: #13131b;
+  --fg: var(--bone);
+  --fg-muted: color-mix(in srgb, var(--fg) 62%, transparent);
+  --fg-faint: color-mix(in srgb, var(--fg) 48%, transparent);
+  --fg-ghost: color-mix(in srgb, var(--fg) 18%, transparent);
+  --line: color-mix(in srgb, var(--fg) 13%, transparent);
+  --line-strong: color-mix(in srgb, var(--fg) 26%, transparent);
+  --accent: var(--acid);
+  --accent-fill: var(--acid);
+  --accent-fg: var(--ink);
+  --shadow-card: 0 40px 80px -40px rgba(0, 0, 0, 0.9);
+  --shadow-knob: 0 10px 24px -12px rgba(0, 0, 0, 0.8);
+  --glow: 0 0 60px -12px color-mix(in srgb, var(--acid) 45%, transparent);
+
+  /* ---- Typography ------------------------------------------------------- */
+  --font-display: "Instrument Serif", "Iowan Old Style", "Times New Roman", serif;
+  --font-sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-hero: clamp(3.7rem, 13.2vw, 14.6rem);
+  --fs-display: clamp(2.5rem, 6.1vw, 6.4rem);
+  --fs-title: clamp(1.55rem, 2.6vw, 2.4rem);
+  --fs-lead: clamp(1.15rem, 1.6vw, 1.55rem);
+  --fs-body: clamp(0.97rem, 0.92vw, 1.06rem);
+  --fs-sm: 0.875rem;
+  --fs-micro: 0.6875rem;
+  --fs-nano: 0.625rem;
+
+  --lh-hero: 0.86;
+  --lh-display: 0.94;
+  --lh-body: 1.55;
+  --tracking-hero: -0.035em;
+  --tracking-display: -0.02em;
+  --tracking-mono: 0.16em;
+
+  /* ---- Space ------------------------------------------------------------ */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --pad: clamp(1.15rem, 3.4vw, 3.25rem);
+  --gap: clamp(1.25rem, 2.6vw, 3rem);
+  --section-y: clamp(5.5rem, 11vh, 10.5rem);
+  --max: 1720px;
+  --nav-h: 74px;
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1: 180ms;
+  --dur-2: 320ms;
+  --dur-3: 620ms;
+  --dur-4: 1100ms;
+
+  /* ---- Layers ----------------------------------------------------------- */
+  --z-base: 1;
+  --z-overlay: 60;
+  --z-nav: 100;
+  --z-cursor: 300;
+  --z-preloader: 400;
+
+  --radius: 3px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+}
+
+/* Inverted editorial section — warm paper, black ink. */
+.theme-bone {
+  color-scheme: light;
+  --bg: var(--bone);
+  --bg-2: var(--bone-2);
+  --surface: #e7e0d0;
+  --surface-2: #ddd5c2;
+  --fg: #0b0b11;
+  --fg-muted: color-mix(in srgb, var(--fg) 68%, transparent);
+  --fg-faint: color-mix(in srgb, var(--fg) 62%, transparent);
+  --fg-ghost: color-mix(in srgb, var(--fg) 14%, transparent);
+  --line: color-mix(in srgb, var(--fg) 16%, transparent);
+  --line-strong: color-mix(in srgb, var(--fg) 34%, transparent);
+  --accent: #4a5308;
+  --accent-fill: #c8ea17;
+  --accent-fg: var(--ink);
+  --shadow-card: 0 30px 60px -34px rgba(20, 18, 10, 0.45);
+  --shadow-knob: 0 10px 24px -12px rgba(20, 18, 10, 0.45);
+  --glow: 0 0 60px -20px rgba(120, 140, 0, 0.35);
+}

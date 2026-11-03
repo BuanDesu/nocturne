@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-static/
+.vite/
+releases/nocturne-static-v1.0.0/
+*.local
+*.log
+.DS_Store
+Thumbs.db

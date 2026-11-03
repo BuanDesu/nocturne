@@ -1,0 +1,100 @@
+.craftmode {
+  position: fixed;
+  inset: 0;
+  z-index: 94;
+  pointer-events: none;
+}
+
+/* ---- Grid ---------------------------------------------------------------- */
+.craftmode__baseline {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(218, 255, 62, 0.06) 0,
+    rgba(218, 255, 62, 0.06) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+.craftmode__grid {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+.craftmode__grid > span {
+  background: rgba(218, 255, 62, 0.03);
+  border-left: 1px solid rgba(218, 255, 62, 0.2);
+  border-right: 1px solid rgba(218, 255, 62, 0.07);
+}
+
+.craftmode[data-theme="light"] .craftmode__baseline {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(11, 11, 17, 0.07) 0,
+    rgba(11, 11, 17, 0.07) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+.craftmode[data-theme="light"] .craftmode__grid > span {
+  background: rgba(11, 11, 17, 0.028);
+  border-left-color: rgba(11, 11, 17, 0.22);
+  border-right-color: rgba(11, 11, 17, 0.08);
+}
+
+/* ---- HUD ---------------------------------------------------------------- */
+.craftmode__hud {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: grid;
+  gap: 1px;
+  width: 302px;
+  border: 1px solid rgba(218, 255, 62, 0.3);
+  background: rgba(6, 6, 10, 0.86);
+  backdrop-filter: blur(12px);
+  color: rgba(239, 233, 220, 0.92);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.craftmode__hud > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.34rem 0.55rem;
+  border-bottom: 1px solid rgba(239, 233, 220, 0.07);
+}
+.craftmode__hud > span:last-child { border-bottom: 0; }
+.craftmode__hud i {
+  font-style: normal;
+  color: rgba(218, 255, 62, 0.72);
+  letter-spacing: 0.1em;
+}
+.craftmode__hud b {
+  font-weight: 400;
+  color: rgba(239, 233, 220, 0.92);
+  white-space: nowrap;
+}
+.craftmode__hint { background: rgba(218, 255, 62, 0.07); }
+.craftmode__hint b { letter-spacing: 0.02em; }
+
+body.craft-on section[id] {
+  outline: 1px dashed rgba(218, 255, 62, 0.26);
+  outline-offset: -1px;
+}
+body.craft-on section.theme-bone[id] {
+  outline-color: rgba(11, 11, 17, 0.24);
+}
+
+@media (max-width: 900px) {
+  .craftmode__hud { display: none; }
+  .craftmode__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}

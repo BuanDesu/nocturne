@@ -1,0 +1,519 @@
+/* ==========================================================================
+   NOCTURNE — 01 · Manifesto
+   Warm paper, ink type, one olive accent. A page turned in a monograph.
+   ========================================================================== */
+
+.section.manifesto {
+  position: relative;
+  padding-top: clamp(6.75rem, 14vh, 12rem);
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* ---- Opening index row ---- */
+.manifesto__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: clamp(0.8rem, 1.4vw, 1.15rem);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+/* ---- Statement + aside ---- */
+.manifesto__hero {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+  align-items: start;
+  margin-top: clamp(2.6rem, 6vh, 5rem);
+}
+
+.manifesto__statement {
+  grid-column: 1 / span 8;
+  margin-left: -0.045em;
+  max-width: 20ch;
+  font-size: var(--fs-display);
+}
+
+.manifesto__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+
+.manifesto__line-in {
+  display: block;
+  will-change: transform;
+}
+
+.manifesto__felt {
+  position: relative;
+  display: inline-block;
+  font-style: italic;
+  letter-spacing: -0.005em;
+}
+
+.manifesto__underline {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.035em;
+  width: calc(100% + 0.08em);
+  height: 0.2em;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.manifesto__underline path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+}
+
+/* ---- Aside: seal, lede, colophon column ---- */
+.manifesto__aside {
+  grid-column: 9 / span 4;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 2.8vw, 2.1rem);
+}
+
+.manifesto__seal {
+  width: clamp(132px, 12.4vw, 184px);
+  margin-left: auto;
+  margin-right: calc(var(--pad) * -0.3);
+  color: var(--fg);
+}
+
+.manifesto__seal svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.seal__ring {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.seal__ring--inner {
+  stroke: var(--line);
+}
+
+.seal__spin {
+  transform-origin: 100px 100px;
+}
+
+.seal__text {
+  font-family: var(--font-mono);
+  font-size: 8.6px;
+  letter-spacing: 2.74px;
+  fill: var(--fg-muted);
+  text-transform: uppercase;
+}
+
+.seal__dot {
+  fill: var(--accent-fill);
+}
+
+.seal__monogram {
+  font-family: var(--font-display);
+  font-size: 66px;
+  letter-spacing: -0.03em;
+  fill: var(--fg);
+}
+
+.seal__monogram-dot {
+  fill: var(--accent-fill);
+}
+
+.manifesto__lede {
+  max-width: 36ch;
+  color: var(--fg-muted);
+  font-size: var(--fs-body);
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.manifesto__spec {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.manifesto__spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-block: 0.58rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.manifesto__spec-row dt {
+  color: var(--fg-faint);
+  font-size: var(--fs-nano);
+}
+
+.manifesto__spec-row dd {
+  font-size: var(--fs-sm);
+  color: var(--fg);
+  text-align: right;
+}
+
+/* ---- Four principles ---- */
+.manifesto__principles {
+  margin-top: clamp(3.75rem, 8.5vh, 7rem);
+  border-top: 1px solid var(--line-strong);
+}
+
+.manifesto__principle {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1.2fr) minmax(0, 1.55fr) auto;
+  align-items: center;
+  column-gap: clamp(1rem, 2vw, 2.1rem);
+  padding: clamp(1.15rem, 2.4vh, 1.7rem) clamp(0.65rem, 1.2vw, 1rem);
+  margin-inline: calc(clamp(0.65rem, 1.2vw, 1rem) * -1);
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.45s var(--ease-out-expo);
+}
+
+.manifesto__principle-index {
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  color: var(--fg-faint);
+  transition: color 0.35s var(--ease-out-expo);
+}
+
+.manifesto__principle-name {
+  font-size: var(--fs-title);
+  line-height: 1;
+  letter-spacing: -0.012em;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.roll {
+  display: inline-block;
+  height: 1.02em;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.roll__inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.roll__a,
+.roll__b {
+  display: block;
+  line-height: 1.02;
+}
+
+.manifesto__principle-text {
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--fg-muted);
+  transition: color 0.35s var(--ease-out-expo);
+}
+
+.manifesto__principle-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-5px, 5px);
+  transition: opacity 0.35s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+
+.manifesto__principle:hover {
+  background: color-mix(in srgb, var(--fg) 3.5%, transparent);
+}
+
+.manifesto__principle:hover .manifesto__principle-index {
+  color: var(--accent);
+}
+
+.manifesto__principle:hover .manifesto__principle-name {
+  transform: translateX(0.55rem);
+}
+
+.manifesto__principle:hover .roll__inner {
+  transform: translateY(-50%);
+}
+
+.manifesto__principle:hover .manifesto__principle-text {
+  color: var(--fg);
+}
+
+.manifesto__principle:hover .manifesto__principle-arrow {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Figures ---- */
+.manifesto__stats {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+  align-items: start;
+  margin-top: clamp(3.5rem, 8vh, 6rem);
+  padding-top: clamp(1.6rem, 3vh, 2.5rem);
+  border-top: 1px solid var(--line-strong);
+}
+
+.manifesto__stat {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-left: clamp(0rem, 1.4vw, 1.4rem);
+}
+
+.manifesto__stat:first-child {
+  padding-left: 0;
+}
+
+.manifesto__stat:not(:first-child) {
+  border-left: 1px solid var(--line);
+}
+
+.manifesto__stat-num {
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  line-height: 0.8;
+  letter-spacing: -0.035em;
+  color: var(--fg);
+}
+
+.manifesto__stat-label {
+  font-size: 0.66rem;
+  color: var(--fg);
+}
+
+.manifesto__stat-note {
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+  color: var(--fg-muted);
+}
+
+.manifesto__quote {
+  grid-column: 10 / span 3;
+  justify-self: end;
+  align-self: end;
+  max-width: 15ch;
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  line-height: 1.14;
+  letter-spacing: -0.008em;
+  color: var(--fg-muted);
+  text-align: right;
+}
+
+/* ---- Marquee hand-off ---- */
+.manifesto__band {
+  margin-top: clamp(3.25rem, 7vh, 5.5rem);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .manifesto__statement {
+    grid-column: 1 / span 12;
+    max-width: 22ch;
+  }
+
+  .manifesto__aside {
+    grid-column: 1 / span 12;
+    display: grid;
+    grid-template-columns: 168px minmax(0, 1fr);
+    align-items: start;
+    column-gap: clamp(1.5rem, 4vw, 3rem);
+    row-gap: 1.5rem;
+    margin-top: clamp(2rem, 5vh, 3.25rem);
+  }
+
+  .manifesto__seal {
+    grid-row: span 2;
+    width: 156px;
+    margin: 0;
+  }
+
+  .manifesto__lede {
+    max-width: 48ch;
+    padding-top: 0.2rem;
+  }
+
+  .manifesto__spec {
+    grid-column: 2;
+  }
+
+  .manifesto__principle {
+    grid-template-columns: 2.6rem minmax(0, 1fr) auto;
+    row-gap: 0.4rem;
+  }
+
+  .manifesto__principle-text {
+    grid-column: 2 / span 2;
+  }
+
+  .manifesto__principle-arrow {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .manifesto__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 1.75rem;
+  }
+
+  .manifesto__stat {
+    grid-column: auto;
+  }
+
+  .manifesto__quote {
+    grid-column: 1 / -1;
+    justify-self: start;
+    align-self: start;
+    max-width: 22ch;
+    text-align: left;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--fg-muted);
+  }
+}
+
+@media (max-width: 700px) {
+  .section.manifesto {
+    padding-top: clamp(6rem, 12vh, 8rem);
+  }
+
+  .manifesto__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1.5rem;
+  }
+
+  .manifesto__seal {
+    width: 124px;
+    margin-left: auto;
+  }
+
+  .manifesto__spec {
+    width: 100%;
+  }
+
+  .manifesto__principle {
+    grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+    column-gap: 0.9rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .manifesto__stats {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0;
+    column-gap: 0;
+  }
+
+  .manifesto__stat {
+    display: grid;
+    grid-template-columns: 3.9rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: baseline;
+    column-gap: 0.9rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .manifesto__stat:first-child {
+    padding-top: 0;
+  }
+
+  .manifesto__stat-num {
+    grid-row: 1 / span 2;
+    font-size: clamp(2.6rem, 11vw, 3.2rem);
+    align-self: start;
+  }
+
+  .manifesto__stat-label {
+    grid-column: 2;
+  }
+
+  .manifesto__stat-note {
+    grid-column: 2;
+    font-size: 0.78rem;
+  }
+
+  .manifesto__quote {
+    border-top: 0;
+    margin-top: 1.1rem;
+  }
+
+  .manifesto__top {
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+  }
+
+  .manifesto__hero {
+    margin-top: 2.1rem;
+  }
+
+  .manifesto__statement {
+    font-size: clamp(2.05rem, 8.7vw, 2.75rem);
+    max-width: none;
+  }
+
+  .manifesto__line {
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .manifesto__stat-label {
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+  }
+
+  .manifesto__principle-name {
+    font-size: clamp(1.3rem, 6vw, 1.65rem);
+  }
+
+  .manifesto__principle-text {
+    font-size: 0.8rem;
+  }
+
+  .manifesto__principle-arrow {
+    display: none;
+  }
+
+  .manifesto__quote {
+    font-size: 1.05rem;
+  }
+
+  .manifesto__lede {
+    font-size: 0.92rem;
+  }
+}
+
+/* Stroke draw is decorative; keep it drawn for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .manifesto__underline path {
+    stroke-dashoffset: 0;
+  }
+  .roll__inner {
+    transition: none;
+  }
+}

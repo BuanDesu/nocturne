@@ -1,0 +1,60 @@
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-cursor);
+  pointer-events: none;
+  display: none;
+}
+
+@media (pointer: fine) {
+  body.has-custom-cursor .cursor { display: block; }
+}
+
+.cursor__ring,
+.cursor__dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  will-change: transform;
+  opacity: 0;
+}
+
+.cursor__ring {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--bone);
+  mix-blend-mode: difference;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.35s var(--ease-out-expo), border-color 0.35s var(--ease-out-expo);
+}
+
+.cursor__ring[data-intent="view"] {
+  background: var(--acid);
+  border-color: var(--acid);
+  mix-blend-mode: normal;
+}
+.cursor__ring[data-intent="link"] { border-color: var(--acid); }
+
+.cursor__label {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transform: scale(0.34);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-out-expo), transform 0.35s var(--ease-out-expo);
+  white-space: nowrap;
+}
+.cursor__ring[data-intent="view"] .cursor__label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cursor__dot {
+  width: 5px;
+  height: 5px;
+  background: var(--acid);
+}

@@ -1,0 +1,393 @@
+/* ==========================================================================
+   05 / CODA — the plane lands.
+   ========================================================================== */
+
+.coda {
+  position: relative;
+  background: var(--bg);
+  color: var(--fg);
+  padding-block: var(--section-y) 0;
+  overflow: clip;
+}
+
+/* ---- Label row ---------------------------------------------------------- */
+.coda__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 0.95rem;
+  border-bottom: 1px solid var(--line);
+}
+.coda__label-row .eyebrow { color: var(--fg-muted); }
+.coda__clock {
+  color: var(--fg-faint);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+}
+.coda__clock span { color: color-mix(in srgb, var(--fg) 58%, transparent); font-variant-numeric: tabular-nums; }
+
+/* ---- Statement ---------------------------------------------------------- */
+.coda__top {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  column-gap: var(--gap);
+  align-items: end;
+  padding-block: clamp(3rem, 7vh, 5.8rem) clamp(2.6rem, 6vh, 4.8rem);
+}
+
+.coda__statement {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.1rem, 9.4vw, 10.3rem);
+  line-height: 0.87;
+  letter-spacing: -0.038em;
+  color: var(--fg);
+  margin: 0;
+}
+.coda__line {
+  display: block;
+  overflow: hidden;
+}
+.coda__line-inner {
+  display: inline-block;
+  padding-bottom: 0.09em;
+  margin-bottom: -0.09em;
+  will-change: transform;
+}
+.coda__line-inner em {
+  font-style: italic;
+  letter-spacing: -0.03em;
+}
+
+.coda__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.35rem;
+  justify-self: end;
+  max-width: 30ch;
+  padding-bottom: 0.7rem;
+}
+.coda__aside-text {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--fg-muted);
+  text-wrap: pretty;
+}
+.coda__pill {
+  border-color: var(--line-strong);
+  color: color-mix(in srgb, var(--fg) 80%, transparent);
+  white-space: nowrap;
+}
+.coda__pill .dot-live { background: var(--acid); }
+
+/* ---- Contact ------------------------------------------------------------ */
+.coda__contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  padding-block: clamp(2.2rem, 4.5vh, 3.4rem) clamp(3.4rem, 8vh, 6rem);
+  border-top: 1px solid var(--line);
+}
+
+.coda__mail-label { color: var(--fg-faint); font-size: 0.55rem; letter-spacing: 0.18em; }
+
+.coda__mail-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.65rem 0 0.8rem;
+  color: var(--fg);
+}
+.coda__mail-address {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: clamp(1.12rem, 2.15vw, 1.85rem);
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  padding-bottom: 0.24rem;
+  border-bottom: 1px solid var(--line-strong);
+  transition: color 0.35s var(--ease-out-expo), border-color 0.35s var(--ease-out-expo);
+}
+.coda__mail-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  color: var(--fg-muted);
+  transition:
+    background-color 0.4s var(--ease-out-expo),
+    border-color 0.4s var(--ease-out-expo),
+    color 0.35s var(--ease-out-expo),
+    transform 0.5s var(--ease-out-expo);
+}
+.coda__mail-icon svg { width: 14px; height: 14px; }
+.coda__mail-copy:hover .coda__mail-address { color: var(--acid); border-color: var(--acid); }
+.coda__mail-copy:hover .coda__mail-icon {
+  background: var(--acid);
+  border-color: var(--acid);
+  color: var(--ink);
+  transform: rotate(-8deg);
+}
+.coda__mail-hint {
+  color: var(--fg-faint);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+}
+
+/* ---- Circular magnetic CTA --------------------------------------------- */
+.coda__cta {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(176px, 15vw, 226px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--bone);
+  will-change: transform;
+  transition: border-color 0.45s var(--ease-out-expo);
+}
+.coda__cta:hover, .coda__cta:focus-visible { border-color: var(--acid); }
+.coda__cta-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.coda__cta-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+.coda__cta-label {
+  font-size: 0.6rem;
+  line-height: 1.55;
+  letter-spacing: 0.17em;
+  text-align: center;
+  color: var(--bone);
+  transition: color 0.4s var(--ease-out-expo);
+}
+.coda__cta-arrow {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid color-mix(in srgb, var(--bone) 30%, transparent);
+  border-radius: 50%;
+  transition: border-color 0.4s, transform 0.5s var(--ease-out-expo);
+}
+.coda__cta-arrow svg { width: 12px; height: 12px; }
+.coda__cta:hover .coda__cta-label { color: var(--ink); }
+.coda__cta:hover .coda__cta-arrow {
+  border-color: color-mix(in srgb, var(--ink) 40%, transparent);
+  color: var(--ink);
+  transform: translate(1px, -1px);
+}
+
+/* ---- Footer ------------------------------------------------------------- */
+.coda__footer {
+  border-top: 1px solid var(--line);
+  padding-top: clamp(2rem, 4.5vh, 3.2rem);
+}
+.coda__cols {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.9fr 1.5fr;
+  gap: var(--gap);
+  padding-bottom: clamp(2.6rem, 6vh, 4.5rem);
+}
+.coda__col-title {
+  font-size: 0.53rem;
+  letter-spacing: 0.2em;
+  color: var(--fg-faint);
+  margin-bottom: 1.1rem;
+  font-weight: 400;
+}
+.coda__col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+.coda__col li {
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+.coda__col-muted { color: var(--fg-faint) !important; }
+
+.coda__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  color: var(--fg);
+  opacity: 0.78;
+  transition: opacity 0.3s var(--ease-out-expo), color 0.3s var(--ease-out-expo);
+}
+.coda__link:hover { opacity: 1; color: var(--acid); }
+.coda__link-index {
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  color: var(--fg-faint);
+  transition: color 0.3s;
+}
+.coda__link:hover .coda__link-index { color: var(--accent); }
+.coda__link-arrow {
+  font-size: 0.75em;
+  opacity: 0.45;
+  transition: transform 0.35s var(--ease-out-expo), opacity 0.3s;
+}
+.coda__link:hover .coda__link-arrow { transform: translate(2px, -2px); opacity: 1; }
+
+.coda__colophon {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  max-width: 34ch;
+}
+.coda__colophon--muted { margin-top: 0.7rem; color: var(--fg-faint); }
+
+.coda__craft-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  transition: color var(--dur-2) var(--ease-out-expo);
+}
+.coda__craft-toggle:hover { color: var(--fg); }
+.coda__craft-key {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  font-size: 9px;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--fg-muted);
+  transition: border-color var(--dur-2) var(--ease-out-expo), color var(--dur-2) var(--ease-out-expo);
+}
+.coda__craft-toggle:hover .coda__craft-key { border-color: var(--accent); color: var(--accent); }
+
+.coda__base {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.15rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--fg-faint);
+}
+.coda__base .mono { font-size: 0.54rem; letter-spacing: 0.14em; }
+.coda__honest { color: var(--fg-muted); display: inline-flex; align-items: center; gap: 0.55rem; }
+.coda__honest::before { content: "✳"; color: var(--acid); font-size: 0.7rem; line-height: 1; }
+.coda__coords { text-align: right; }
+
+/* ---- Cropped wordmark --------------------------------------------------- */
+.coda__wordmark {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: clamp(2.6rem, 7vh, 5rem);
+  height: clamp(2.7rem, 15.2vw, 15.5rem);
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+.coda__wordmark-text {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 33vw, 52rem);
+  line-height: 0.78;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--fg) 30%, transparent);
+  transform: translateY(-2%);
+  will-change: transform;
+}
+@media (min-width: 1600px) {
+  .coda__wordmark-text { -webkit-text-stroke-width: 1.5px; }
+}
+
+/* ---- Toast -------------------------------------------------------------- */
+.coda__toast {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(1.4rem, 4vh, 2.4rem);
+  z-index: 260;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1.25rem 0.78rem;
+  background: var(--acid);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  opacity: 0;
+  transform: translate(-50%, 14px);
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease-out-expo), transform 0.45s var(--ease-out-expo);
+}
+.coda__toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.coda__toast-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink); flex: none; }
+.coda__toast-text {
+  color: var(--ink);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+/* ---- Responsive --------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .coda__cols { grid-template-columns: 1fr 1fr; row-gap: 2.4rem; }
+  .coda__col--colophon { grid-column: 1 / -1; }
+}
+
+@media (max-width: 900px) {
+  .coda__top {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.8rem;
+    padding-block: 2.8rem 2.4rem;
+  }
+  .coda__aside { justify-self: start; max-width: 44ch; padding-bottom: 0; }
+  .coda__contact { grid-template-columns: minmax(0, 1fr); row-gap: 2rem; align-items: start; }
+  .coda__cta { justify-self: end; width: clamp(160px, 34vw, 200px); }
+  .coda__base { flex-wrap: wrap; row-gap: 0.6rem; }
+  .coda__coords { text-align: left; }
+  .coda__honest { order: 3; width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .coda__col--elsewhere { grid-column: 1 / -1; }
+  .coda__col--elsewhere ul { flex-direction: row; flex-wrap: wrap; gap: 0.6rem 1.8rem; }
+  .coda__label-row { flex-wrap: wrap; gap: 0.45rem; }
+  .coda__clock { font-size: 0.52rem; letter-spacing: 0.12em; }
+  .coda__statement { font-size: clamp(2.9rem, 13.4vw, 4rem); }
+  .coda__contact { padding-bottom: 2.8rem; }
+  .coda__mail-address { font-size: clamp(1rem, 4.6vw, 1.2rem); }
+  .coda__mail-icon { width: 32px; height: 32px; }
+  .coda__cols { grid-template-columns: 1fr 1fr; column-gap: 1.4rem; }
+  .coda__col--colophon { grid-column: 1 / -1; }
+  .coda__base .mono { font-size: 0.5rem; }
+  .coda__toast { width: calc(100vw - 2.4rem); justify-content: center; }
+  .coda__toast-text { white-space: normal; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coda__line-inner { transform: none !important; }
+  .coda__toast { transition: none; }
+}

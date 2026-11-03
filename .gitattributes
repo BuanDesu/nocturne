@@ -1,0 +1,6 @@
+# Normalise line endings for a cross-platform web project
+* text=auto eol=lf
+*.jpg binary
+*.png binary
+*.woff2 binary
+*.zip binary
