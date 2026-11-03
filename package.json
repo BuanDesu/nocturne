@@ -23,5 +23,13 @@
     "@vitejs/plugin-react": "^6.1.2",
     "typescript": "^7.0.2",
     "vite": "^8.3.5"
+  },
+  "description": "Nocturne — a front-end craft demonstration in six movements. WebGL, kinetic typography and scroll choreography.",
+  "author": "BuanDesu",
+  "license": "MIT",
+  "homepage": "https://buandesu.github.io/nocturne/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuanDesu/nocturne.git"
   }
 }

@@ -1,5 +1,9 @@
 # Nocturne
 
+[![Live demo](https://img.shields.io/badge/live-buandesu.github.io%2Fnocturne-DAFF3E?style=flat-square)](https://buandesu.github.io/nocturne/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-0B0B11?style=flat-square)](LICENSE)
+[![Made with React 19 + TypeScript](https://img.shields.io/badge/react-19-61DAFB?style=flat-square)](package.json)
+
 **A front-end craft demonstration in six movements.**
 
 Nocturne is a single-page experience built to show what the front end can feel like when type, motion, light and engineering are treated as one material. It is not a template, not a page builder, and not a gallery of screenshots: every visual on screen is generated in the browser — WebGL, canvas, SVG and CSS. There is not a single image file in the interface.
@@ -8,6 +12,8 @@ Nocturne is a single-page experience built to show what the front end can feel l
 Void black. Warm bone. One acid accent.
 Six movements. Zero images. Zero UI libraries.
 ```
+
+**Live preview:** https://buandesu.github.io/nocturne/ — deployed from the `gh-pages` branch (relative-path static build, so it also works under any sub-path).
 
 ![Nocturne — Overture](docs/01-overture.jpg)
 
@@ -48,6 +54,8 @@ Full instructions (headers, MIME types, sub-path deployment): [`releases/DEPLOY.
 pnpm build:static     # → dist-static/
 pnpm preview:static   # serve dist-static at http://localhost:5182
 ```
+
+GitHub Pages is served from the `gh-pages` branch (built static files committed there), so the live URL always runs the relative-path build above.
 
 ---
 
@@ -152,6 +160,11 @@ Most scroll animation is **declarative** — a section opts in with attributes:
 Design rationale, motion system and WebGL notes: [`DESIGN.md`](DESIGN.md). The final audit, measured numbers and triaged non-issues: [`reports/qa-final.md`](reports/qa-final.md).
 
 ---
+
+## License
+
+[MIT](LICENSE) © 2026 BuanDesu — free to learn from, fork and build on.
+The bundled typefaces are licensed separately under the SIL Open Font License (see Credits below).
 
 ## Credits
 
